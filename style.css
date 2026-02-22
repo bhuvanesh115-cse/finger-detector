@@ -1,0 +1,68 @@
+/* ---------- Global Reset ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- Body Styling ---------- */
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+}
+
+/* ---------- Title ---------- */
+h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+/* ---------- Result Display ---------- */
+#result {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  transition: 0.3s ease;
+}
+
+/* ---------- Canvas Styling ---------- */
+canvas {
+  border-radius: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+  transition: 0.3s ease;
+}
+
+/* Glow effect on hover */
+canvas:hover {
+  box-shadow: 0 0 40px rgba(0, 255, 255, 1);
+  transform: scale(1.02);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  canvas {
+    width: 90%;
+    height: auto;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  #result {
+    font-size: 18px;
+  }
+}
