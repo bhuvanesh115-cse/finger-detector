@@ -53,10 +53,28 @@ hands.onResults(results => {
   resultText.innerText = "Detected Number: " + totalCount;
 });
 const video = document.createElement('video');
-navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
-  video.srcObject = stream;
-  video.play();
-});
+video.setAttribute("playsinline", true);
+
+async function startCamera() {
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode: "user"
+      },
+      audio: false
+    });
+
+    video.srcObject = stream;
+    video.play();
+
+  } catch (err) {
+    alert("Camera error: " + err.message);
+    console.error(err);
+  }
+}
+
+startCamera();
+
 video.onloadeddata = async () => {
   const camera = new Camera(video, {
     onFrame: async () => {
